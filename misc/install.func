@@ -68,7 +68,7 @@ catch_errors() {
 
 # This function handles errors
 error_handler() {
-    source <(wget -qLO - https://raw.githubusercontent.com/community-scripts/ProxmoxVED/main/misc/api.func)
+    source <(wget -qLO - https://raw.githubusercontent.com/brynnjknight/ProxmoxVED/add_portainer_lxc/misc/api.func)
     if [ -n "$SPINNER_PID" ] && ps -p $SPINNER_PID >/dev/null; then kill $SPINNER_PID >/dev/null; fi
     printf "\e[?25h"
     local exit_code="$?"
@@ -232,7 +232,7 @@ motd_ssh() {
     echo -e "echo -e \"${YW} OS: ${GN}${OS_NAME} - Version: ${OS_VERSION}${CL}\"" >>"$PROFILE_FILE"
     echo -e "echo -e \"${YW} Hostname: ${GN}\$(hostname)${CL}\"" >>"$PROFILE_FILE"
     echo -e "echo -e \"${YW} IP Address: ${GN}\$(hostname -I | awk '{print \$1}')${CL}\"" >>"$PROFILE_FILE"
-    echo -e "echo -e \"${YW} Repository: ${GN}https://github.com/community-scripts/ProxmoxVED${CL}\"" >>"$PROFILE_FILE"
+    echo -e "echo -e \"${YW} Repository: ${GN}https://github.com/brynnjknight/ProxmoxVED${CL}\"" >>"$PROFILE_FILE"
     echo "echo \"\"" >>"$PROFILE_FILE"
 
     chmod -x /etc/update-motd.d/*
@@ -258,7 +258,7 @@ EOF
         systemctl restart $(basename $(dirname $GETTY_OVERRIDE) | sed 's/\.d//')
         msg_ok "Customized Container"
     fi
-    echo "bash -c \"\$(wget -qLO - https://github.com/community-scripts/ProxmoxVED/raw/main/ct/${app}.sh)\"" >/usr/bin/update
+    echo "bash -c \"\$(wget -qLO - https://github.com/brynnjknight/ProxmoxVED/raw/add_portainer_lxc/ct/${app}.sh)\"" >/usr/bin/update
     chmod +x /usr/bin/update
 
     if [[ -n "${SSH_AUTHORIZED_KEY}" ]]; then
