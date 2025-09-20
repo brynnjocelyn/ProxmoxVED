@@ -1,0 +1,56 @@
+{
+  "name": "Consul",
+  "slug": "consul",
+  "categories": [
+    20
+  ],
+  "date_created": "2025-01-19",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 8500,
+  "documentation": "https://developer.hashicorp.com/consul/docs",
+  "website": "https://www.consul.io/",
+  "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons/webp/consul.webp",
+  "config_path": "/etc/consul/consul.hcl",
+  "description": "Consul is a service discovery and configuration tool developed by HashiCorp. It provides a distributed, highly available, and datacenter-aware solution for service discovery, configuration, and orchestration. Consul features include service discovery via DNS or HTTP interface, health checking of services and nodes, key/value storage for configuration, and multi-datacenter support. It enables microservices architectures by providing service mesh capabilities, distributed configuration management, and automatic failover mechanisms.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/consul.sh",
+      "resources": {
+        "cpu": 2,
+        "ram": 2048,
+        "hdd": 8,
+        "os": "debian",
+        "version": "12"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": "N/A",
+    "password": "N/A"
+  },
+  "notes": [
+    {
+      "text": "Default configuration sets up a single-node cluster in development mode",
+      "type": "info"
+    },
+    {
+      "text": "Web UI accessible at port 8500, DNS interface at port 8600",
+      "type": "info"
+    },
+    {
+      "text": "For production use, configure proper ACLs and TLS encryption",
+      "type": "warning"
+    },
+    {
+      "text": "Configuration file located at /etc/consul/consul.hcl",
+      "type": "info"
+    },
+    {
+      "text": "Default datacenter name is 'dc1', can be changed in configuration",
+      "type": "info"
+    }
+  ]
+}
