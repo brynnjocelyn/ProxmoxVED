@@ -1,0 +1,44 @@
+{
+  "name": "Consul",
+  "slug": "consul",
+  "categories": [
+    20
+  ],
+  "date_created": "2025-09-23",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 8500,
+  "documentation": "https://developer.hashicorp.com/consul/docs",
+  "website": "https://www.consul.io/",
+  "logo": "https://www.consul.io/img/logo.svg",
+  "config_path": "/opt/consul/config/consul.hcl",
+  "description": "Consul is a service networking solution from HashiCorp that enables teams to manage secure network connectivity between services and across multi-cloud environments and runtimes. It provides service discovery, service mesh, traffic management, and automated network configuration. Key features include a distributed key-value store, health checking, multi-datacenter support, and a web UI for managing services. This container sets up a single Consul server suitable for development and testing purposes.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/consul.sh",
+      "resources": {
+        "cpu": 2,
+        "ram": 1024,
+        "hdd": 4,
+        "os": "debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "To enable ACL security, run: consul-helper enable-acl",
+      "type": "info"
+    },
+    {
+      "text": "DNS interface available on port 8600",
+      "type": "info"
+    }
+  ]
+}
